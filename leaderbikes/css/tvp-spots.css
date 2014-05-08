@@ -1,0 +1,124 @@
+.SpotPanel {
+  display: table-cell;
+  position: relative;
+  width: 960px;
+  height: 170px;
+  overflow: hidden;
+}
+
+.SpotArrowLeft, .SpotArrowRight {
+  display: table-cell;
+  position: relative;
+  width: 80px;
+  height: 170px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.SpotArrowLeft > button, .SpotArrowRight > button {
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+
+  font-family: 'tvpage_arrowsregular';
+  font-size: 50px;
+
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: #efefef;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.7);
+}
+
+.SpotArrowLeft > button:hover, .SpotArrowRight > button:hover {
+  background: rgba(255,255,255,0.8);
+  color: #333333;
+  text-shadow: 0px -1px 1px rgba(255,255,255,0.7);
+  cursor: pointer;
+}
+
+.SpotList {
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+
+  -webkit-backface-visibility: hidden;
+
+  position: absolute;
+  width: 960px;
+  height: 170px;
+}
+.SpotItem {
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+
+  width: 240px;
+  height: 170px;
+  /*margin: 10px 10px 10px 0;*/
+
+  position: relative;
+}
+
+.hiddenRight {
+  -webkit-transform: translate(100%, 0);
+  -moz-transform: translate(100%, 0);
+  -ms-transform: translate(100%, 0);
+  -o-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+}
+.hiddenLeft {
+  -webkit-transform: translate(-100%, 0);
+  -moz-transform: translate(-100%, 0);
+  -ms-transform: translate(-100%, 0);
+  -o-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+}
+
+.SpotContainer {
+  background: rgba(0,0,0,0.4);
+}
+
+.SpotOverlay {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  padding: 5px;
+
+  background-color: rgba(0,0,0,0.8);
+
+  opacity: 0;
+
+  padding-top: 50px;
+}
+
+.SpotOverlay > p {
+  padding-bottom: 0;
+  text-align: center;
+}
+
+.SpotItem:hover .SpotOverlay {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.btn {
+  cursor: pointer;
+  color: #ddd;
+  border: solid 1px transparent;
+  background-color: rgba(120, 9, 20, 1);
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: rgba(170, 9, 36, 1);
+}

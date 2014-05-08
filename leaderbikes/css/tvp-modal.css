@@ -1,0 +1,42 @@
+.ModalOverlay {
+  display: none;
+  opacity: 0;
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1000;
+
+  background: rgba(40,40,40,0.9);
+}
+
+.ModalClose {
+  position: fixed;
+}
+
+.ModalClose {
+  border: solid 1px #ddd;
+  color: #ddd;
+
+  cursor: pointer;
+}
+
+.ModalClose > span {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 26px;
+  padding: 5px 12px 5px 8px;
+}
+
+.ModalClose:hover {
+  background: rgba(170, 9, 36, 1);
+  color: #fff;
+  border: solid 1px rgba(170, 9, 36, 1);
+}
