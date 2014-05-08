@@ -1,0 +1,189 @@
+html, body {
+  margin: 0;
+  border: 0;
+  padding: 0;
+
+  font-family: Arial, Helvetica, "sans-serif";
+  font-size: 12px;
+  color: #444;
+
+  background-image: url(http://www.everlastboxing.com.au/skin/frontend/pacbrands/everlast/img/siteBg.gif);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.everlast-header {
+  width: 957px;
+  height: 133px;
+
+  margin: 0 auto;
+
+  text-align: center;
+
+}
+
+.everlast-footer {
+  width: 100%;
+  height: 570px;
+
+  text-align: center;
+}
+
+.everlast-main {
+  width: 957px;
+  min-height: 1000px;
+
+  background-image: url(../assets/everlast-main-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+#tvpage {
+  width: 836px;
+  height: 400px;
+  margin-left: 121px;
+
+  overflow: hidden;
+
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.6);
+}
+
+.tvp-content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: auto;
+
+  width: 836px;
+  height: 200px;
+
+  overflow: hidden;
+}
+
+.tvp-content .list {
+  background-color: rgba(255,255,255,0.6);
+}
+
+.tvp-content .video-list-item .list-item-body {
+  color: #333;
+  font-weight: 500;
+}
+.tvp-content .video-list-item .list-item-media {
+  width: 80px;
+  height: 45px;
+}
+.tvp-content .video-list-item,
+.tvp-content .channel-list-item {
+  width: 100%;
+  padding: 10px;
+
+
+  /*border-top: solid 1px #666;
+  border-bottom: solid 1px #222;*/
+}
+
+.tvp-content .channel-list-item .list-item-media {
+  display: block;
+
+  width: 280px;
+  height: 45px;
+}
+
+.tvp-content .channel-list-item .list-item-body {
+  display: block;
+  margin-top:5px;
+
+  color: #333;
+}
+
+.Bar {
+  background-color: #000;
+}
+
+/* Products
+-------------------------- */
+.tvp-spots {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 30px;
+
+  width: 150px;
+  height: 370px;
+
+  overflow: hidden;
+}
+
+.tvp-remote {
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  transform: scale(0);
+
+  position: absolute;
+  width: 30px;
+  height: 30px;
+
+  top: 0px;
+  left: 0px;
+
+  background-color: #ffd204;
+
+  line-height: 30px;
+  text-align: center;
+
+  color: #fff;
+  text-shadow: 0px 1px 2px rgba(0,0,0,0.6);
+
+  font-size: 30px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  box-shadow: 0px 0px 20px 5px rgba(255,255,255,0.8);
+}
+
+/* Scrollbar indicator
+----------------------------------------------------- */
+
+.iScrollHorizontalScrollbar {
+  position: absolute;
+  z-index: 9999;
+  height: 16px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  overflow: hidden;
+}
+
+.iScrollHorizontalScrollbar.iScrollBothScrollbars {
+  right: 18px;
+}
+
+.iScrollVerticalScrollbar {
+  position: absolute;
+  z-index: 9999;
+  width: 7px;
+  bottom: 2px;
+  top: 2px;
+  right: 2px;
+  overflow: hidden;
+}
+
+.iScrollVerticalScrollbar.iScrollBothScrollbars {
+  bottom: 18px;
+}
+
+.iScrollIndicator {
+  position: absolute;
+  background: #cc3f6e;
+  border: none;
+  border-radius: 4px;
+}
+
+.iScrollVerticalScrollbar .iScrollIndicator {
+  width: 100%;
+  background-color: rgba(0,0,0,0.4);
+}

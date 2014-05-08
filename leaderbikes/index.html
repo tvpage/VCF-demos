@@ -4,15 +4,20 @@
     <!-- <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> -->
     <title>
-      Test LeaderBikes
+      Demo LeaderBikes
     </title>
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/leaderbikes.css">
 
+    <!-- // <script type="text/javascript" src="js/prototype.js"></script> -->
+
     <script type="text/javascript" src="http://donnie.tvpage.com/tvpage-api-javascript-client/dist/debug/lib.js"></script>
-    <!-- <script type="text/javascript" src="//www.tvpage.com/player/assets/tvp/tvp-1.3.3-min.js"></script> -->
+
+    <!-- // <script type="text/javascript" src="js/prototype.js"></script> -->
+
     <script type="text/javascript" src="main.js"></script>
+
 
   </head>
   <body>
@@ -25,9 +30,11 @@
       <div style="margin:0 auto; width: 960px;height:100%;">
         <div id="tvpage" data-tvpage-id="143889" style="position:relative;">
           <div class="tvp-canvas"></div>
-          <div class="tvp-spots">
-            <div class="SpotContainer"></div>
-          </div>
+          <!-- <div class="tvp-spots">
+            <div class="SpotContainer">
+              <ul class="grid SpotList clearfix showCenter"></ul>
+            </div>
+          </div> -->
           <div class="tvp-content">
             <div id="grid-list" class="ContentList">
              <!--  <ul class="grid">
@@ -201,9 +208,17 @@
           <div class="tvp-player">
             <div id="TVPage_Player"></div>
           </div>
+          <div class="tvp-content">
+            <div id="prod-list"></div>
+          </div>
           <!-- <div class="tvp-player2">
             <div id="TVPage_Player2"></div>
           </div> -->
+          <div class="tvp-spots">
+            <div class="SpotContainer">
+              <ul id="product-grid" class="grid SpotList clearfix showCenter"></ul>
+            </div>
+          </div>
           <div class="tvp-modal">
             <div class="ModalOverlay">
               <div class="ModalClose roman" style="top: 106px; left: 1435.5px;">

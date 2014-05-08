@@ -1,0 +1,147 @@
+/* Load the font */
+@font-face {
+  font-family: 'tvpageregular';
+  src: url('../fonts/tvpage-regular-webfont.eot');
+  src: url('../fonts/tvpage-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/tvpage-regular-webfont.svg#tvpageregular') format('svg'),
+  url('../fonts/tvpage-regular-webfont.woff') format('woff'),
+  url('../fonts/tvpage-regular-webfont.ttf') format('truetype');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'tvpage_arrowsregular';
+  src: url('../fonts/tvpagearrows-regular-webfont.eot');
+  src: url('../fonts/tvpagearrows-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/tvpagearrows-regular-webfont.svg#tvpage_arrowsregular') format('svg'),
+  url('../fonts/tvpagearrows-regular-webfont.woff') format('woff'),
+  url('../fonts/tvpagearrows-regular-webfont.ttf') format('truetype');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Fonts from jockey.com */
+@font-face{
+  font-family:"HelveticaNeue87CondensedHeavy";
+  src:url("//www.jockey.com/Content/Fonts/87conHeavy.eot") format("eot");
+  src:url("//www.jockey.com/Content/Fonts/87conHeavy.eot?iefix") format("embedded-opentype"),
+  url("//www.jockey.com/Content/Fonts/87conHeavy.woff") format("woff"),
+  url("//www.jockey.com/Content/Fonts/87conHeavy.ttf") format("truetype"),
+  url("//www.jockey.com/Content/Fonts/87conHeavy.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face{
+  font-family:"HelveticaBoldCondensed77";
+  src: url('/Content/Fonts/77bold.eot') format('eot');
+  src:url("//www.jockey.com/Content/Fonts/77bold.eot?iefix") format("embedded-opentype"),
+  url("//www.jockey.com/Content/Fonts/77bold.woff") format("woff"),
+  url("//www.jockey.com/Content/Fonts/77bold.ttf") format("truetype"),
+  url("//www.jockey.com/Content/Fonts/77bold.svg#77bold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face{
+  font-family:"HelveticaNeueW01-75Bold";
+  src:url("//www.jockey.com/Content/Fonts/75bold.eot") format("eot");
+  src:url("//www.jockey.com/Content/Fonts/75bold.eot?iefix") format("embedded-opentype"),
+  url("//www.jockey.com/Content/Fonts/75bold.woff") format("woff"),
+  url("//www.jockey.com/Content/Fonts/75bold.ttf") format("truetype"),
+  url("//www.jockey.com/Content/Fonts/75bold.svg#75bold") format("svg");
+}
+@font-face{
+  font-family:"HelveticaNeue65Medium";
+  src:url("//www.jockey.com/Content/Fonts/65medium.eot") format("eot");
+  src:url("//www.jockey.com/Content/Fonts/65medium.eot?iefix")  format("embedded-opentype"),
+  url("//www.jockey.com/Content/Fonts/65medium.woff") format("woff"),
+  url("//www.jockey.com/Content/Fonts/65medium.ttf") format("truetype"),
+  url("//www.jockey.com/Content/Fonts/65medium.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face{
+  font-family:"HelveticaNeue55Roman";
+  src: url("//www.jockey.com/Content/Fonts/55rome.eot") format("eot");
+  src:url("//www.jockey.com/Content/Fonts/55rome.eot?iefix") format("embedded-opentype"),
+  url("//www.jockey.com/Content/Fonts/55rome.woff") format("woff"),
+  url("//www.jockey.com/Content/Fonts/55rome.ttf") format("truetype"),
+  url("//www.jockey.com/Content/Fonts/55rome.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face{
+  font-family:"HelveticaCondensedLight47";
+  src:url("//www.jockey.com/Content/Fonts/HV-n-47-Lght.eot") format("eot");
+  src:url("//www.jockey.com/Content/Fonts/HV-n-47-Lght.eot?iefix") format("embedded-opentype"),
+  url("//www.jockey.com/Content/Fonts/HV-n-47-Lght.woff") format("woff"),
+  url("//www.jockey.com/Content/Fonts/HV-n-47-Lght.ttf") format("truetype"),
+  url("//www.jockey.com/Content/Fonts/HV-n-47-Lght.svg#HV-n-47-Lght") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face{
+  font-family:"HelveticaLight46";
+  src: url("//www.jockey.com/Content/Fonts/HN-46Ligh.eot") format("eot");
+  src:url("//www.jockey.com/Content/Fonts/HN-46Ligh.eot?iefix") format("embedded-opentype"),
+  url("//www.jockey.com/Content/Fonts/HN-46Ligh.woff") format("woff"),
+  url("//www.jockey.com/Content/Fonts/HN-46Ligh.ttf") format("truetype"),
+  url("//www.jockey.com/Content/Fonts/HN-46Ligh.svg#HN-46Ligh") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face{
+  font-family:"HelveticaLight45";
+  src: url("//www.jockey.com/Content/Fonts/45light.eot") format("eot");
+  src:url("//www.jockey.com/Content/Fonts/45light.eot?iefix") format("embedded-opentype"),
+  url("//www.jockey.com/Content/Fonts/45light.woff") format("woff"),
+  url("//www.jockey.com/Content/Fonts/45light.ttf") format("truetype"),
+  url("//www.jockey.com/Content/Fonts/45light.svg#45light") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family:"ProximaNovaRegular";
+  src: url("//www.jockey.com/Content/Fonts/ProximaNova-Regular.eot") format("eot");
+  src:url("//www.jockey.com/Content/Fonts/ProximaNova-Regular.eot?iefix") format("embedded-opentype"),
+  url("//www.jockey.com/Content/Fonts/ProximaNova-Regular.woff") format("woff"),
+  url("//www.jockey.com/Content/Fonts/ProximaNova-Regular.ttf") format("truetype"),
+  url("//www.jockey.com/Content/Fonts/ProximaNova-Regular.svg#ProximaNova-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family:"ProximaNovaBold";
+  src: url("//www.jockey.com/Content/Fonts/ProximaNova-Bold.eot") format("eot");
+  src:url("//www.jockey.com/Content/Fonts/ProximaNova-Bold.eot?iefix") format("embedded-opentype"),
+  url("//www.jockey.com/Content/Fonts/ProximaNova-Bold.woff") format("woff"),
+  url("//www.jockey.com/Content/Fonts/ProximaNova-Bold.ttf") format("truetype"),
+  url("//www.jockey.com/Content/Fonts/ProximaNova-Bold.svg#ProximaNova-Bold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family:"ProximaNovaItalic";
+  src: url("//www.jockey.com/Content/Fonts/ProximaNova-RegularIt.eot") format("eot");
+  src:url("//www.jockey.com/Content/Fonts/ProximaNova-RegularIt.eot?iefix") format("embedded-opentype"),
+  url("//www.jockey.com/Content/Fonts/ProximaNova-RegularIt.woff") format("woff"),
+  url("//www.jockey.com/Content/Fonts/ProximaNova-RegularIt.ttf") format("truetype"),
+  url("//www.jockey.com/Content/Fonts/ProximaNova-RegularIt.svg#ProximaNova-RegularIt") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family:"ProximaNovaLight";
+  src: url("//www.jockey.com/Content/Fonts/ProximaNova-Light.eot") format("eot");
+  src:url("//www.jockey.com/Content/Fonts/ProximaNova-Light.eot?iefix") format("embedded-opentype"),
+  url("//www.jockey.com/Content/Fonts/ProximaNova-Light.woff") format("woff"),
+  url("//www.jockey.com/Content/Fonts/ProximaNova-Light.ttf") format("truetype"),
+  url("//www.jockey.com/Content/Fonts/ProximaNova-Light.svg#ProximaNova-Light") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {font-family: 'ProximaNovaBoldIt';src: url('/Content/fonts/ProximaNova-BoldIt.eot') format("eot");src: url('/Content/fonts/ProximaNova-BoldIt.eot?#iefix') format('embedded-opentype'),url('/Content/fonts/ProximaNova-BoldIt.woff') format('woff'),url('/Content/fonts/ProximaNova-BoldIt.ttf') format('truetype'),url('/Content/fonts/ProximaNova-BoldIt.svg') format("svg");font-weight: normal;font-style: normal;}
+@font-face {font-family: 'ProximaNovaLightIt';src: url('/Content/fonts/ProximaNova-LightIt.eot') format("eot");src: url('/Content/fonts/ProximaNova-LightIt.eot?#iefix') format('embedded-opentype'),url('/Content/fonts/ProximaNova-LightIt.woff') format('woff'),url('/Content/fonts/ProximaNova-LightIt.ttf') format('truetype'),url('/Content/fonts/ProximaNova-LightIt.svg') format("svg");font-weight: normal;font-style: normal;}
+@font-face {font-family: 'ProximaNovaRegularIt';src: url('/Content/fonts/ProximaNova-RegularIt.eot') format("eot");src: url('/Content/fonts/ProximaNova-RegularIt.eot?#iefix') format('embedded-opentype'),url('/Content/fonts/ProximaNova-RegularIt.woff') format('woff'),url('/Content/fonts/ProximaNova-RegularIt.ttf') format('truetype'),url('/Content/fonts/ProximaNova-RegularIt.svg') format("svg");font-weight: normal;font-style: normal;}

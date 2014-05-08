@@ -1,0 +1,86 @@
+/* Header
+----------------------------------------------------- */
+
+.tvp-menubar .bar {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 29px;
+}
+
+.button {
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  background: none;
+
+  outline: none;
+
+  color: #eee;
+
+  cursor: pointer;
+}
+
+.button .icon {
+  font-family: 'tvpageregular', sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  height: 22px;
+  margin-right: 2px;
+  vertical-align: middle;
+  display: inline-block;
+  padding-top: -1px;
+}
+
+.button.button-icon .icon {
+  font-size: 24px;
+  margin-right: 0;
+}
+
+.button .text {
+  font-size: 18px;
+  line-height: 22px;
+  height: 22px;
+  vertical-align: middle;
+}
+
+.tvp-menubar .button {
+
+  margin: 2px;
+  padding: 1px 5px;
+  font-family: 'HelveticaBoldCondensed77', sans-serif;
+}
+
+.tvp-menubar .button.button-icon {
+  padding: 2px;
+}
+
+.button-over {
+  background-color: #333;
+  color: #ffd204;
+}
+
+.button-pressed {
+  box-shadow: inset 0px 1px 2px rgba(0,0,0,0.4);
+  background-color: #ccc;
+  color: #333;
+}
+
+.tvp-menubar .pull-right {
+  float: right;
+}
+
+.tvp-menubar .Logo {
+  background-image: url(../assets/img/everlast-logo.png);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  position: absolute;
+  top: 0;
+}
