@@ -29,7 +29,6 @@ api.ready(function(API){
     menuButton.onclick = function() {
 
       var videoContainer = document.getElementById('video-container');
-      // -webkit-transform: translate(0px, 0px);
 
       if (videoContainer.style['-webkit-transform'] === 'translate(0px, 100%)') {
         videoContainer.style['-webkit-transform'] = '';

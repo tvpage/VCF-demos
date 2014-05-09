@@ -3,6 +3,7 @@ var productTemplate = '<% _.each(items, function(itm) { %> <li class="grid-item 
 var leaderBikesCollectionId = 143889;
 var donnieCollectionId = 146804;
 
+// Instantiate the api
 var api = new TVPageAPI({
   collectionId: leaderBikesCollectionId,
   playerDOMId: 'TVPage_Player'
@@ -10,18 +11,16 @@ var api = new TVPageAPI({
 
 window.onload = function() {
 
-api.ready(function(API){
-
-  console.log('ready: ', arguments);
-
-    var gridList = document.getElementById('grid-list');
+  api.ready(function(API){
 
     var children = API.collection.getChildren(API.collection.getAtIndex(0).id);
+
     var items = [];
     for (var i=0,len=children.length;i<len;i++) {
       items.push(children[i].toJSON());
     }
 
+    var gridList = document.getElementById('grid-list');
     var gridItems =  _.template(templateString, {items:items});
     gridList.innerHTML = gridItems;
 
@@ -34,22 +33,30 @@ api.ready(function(API){
 
         var id = e.target.attributes[0].value;
         var video = API.collection.getItemById(id);
+
         API.player.loadVideo(video);
         API.player.ready(function() {
-          API.registerVideoView(API.collection.getKey(), video.get('id'));
+
+          API.registerVideoView(video);
+
         }, function(e) {
           console.log('Error Loading Video:', e);
         });
 
         if (video !== undefined) {
-          API.products.getProducts(video.get('id'), function(products) {
-            var productJSON = products.toJSON();
-            for (var i=0, len = productJSON.length;i<len;i++) {
-              var productId = productJSON[i].id;
-              API.registerProductImpression(API.collection.getKey(), video.get('id'), productJSON[i].id);
-              productJSON[i] = JSON.parse(productJSON[i].data);
-              productJSON[i].id = productId;
+
+          API.products.getProducts(video, function(products) {
+
+            var productJSON = [];//products.toJSON();
+            for (var i=0,len=products.length;i<len;i++) {
+
+              API.registerProductImpression(products.at(i));
+
+              var product = products.at(i);
+              productJSON.push(JSON.parse(product.get('data')));
+              productJSON[i].id = product.get('id');
             }
+
             var gridList = document.getElementById('product-grid');
             var gridItems =  _.template(productTemplate, {items:productJSON});
             gridList.innerHTML = gridItems;
@@ -60,8 +67,12 @@ api.ready(function(API){
               productButton[i].onclick = function(e) {
                 e.stopPropagation();
                 e.preventDefault();
+
                 var id = e.target.attributes[0].value;
-                API.registerProductClick(API.collection.getKey(), video.get('id'), id);
+                var currentProduct = products.findWhere({id: id});
+
+                API.registerProductClick(currentProduct);
+
               }
             }
           }, function(e) {
@@ -71,34 +82,10 @@ api.ready(function(API){
       }
     }
 
-    API.registerPlayerImpression(API.collection.getKey());
+    API.registerPlayerImpression(API.collection.getAtIndex(0));
 
-    // $(document).on('click', 'a', function(e) {
-    //   e.stopPropagation();
-    //   e.preventDefault();
-    //   API.player.loadByVideoId($(e.target).attr('data-video-id'));
-
-    //   var videoId = $(e.target).attr('data-video-id');
-
-    //   if (videoId !== undefined && videoId !== 'undefined') {
-    //     api.products.getProducts(API.collection.getItemByVideoId(videoId).id, function(products) {
-    //       var productJSON = products.toJSON();
-    //       for (var i=0, len = productJSON.length;i<len;i++) {
-    //         productJSON[i] = JSON.parse(productJSON[i].data);
-    //       }
-    //       var gridItems =  _.template(productTemplate, {items:productJSON});
-    //       $('.tvp-spots > .SpotContainer > ul').append(gridItems);
-    //     }, function(e) {
-    //       console.log(e);
-    //     });
-    //   }
-    // });
-
-  // };
-  // });
-
-}, function(e){
-  console.log('Sorry about this, but something went wrong...', e);
-});
+  }, function(e){
+    console.log('Sorry about this, but something went wrong...', e);
+  });
 
 };
