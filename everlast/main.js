@@ -1,27 +1,30 @@
-var videoTemplate = '<% _.each(items, function(itm) { %> <li class="background-image ContentItemVideo fade video-grid-item fadeIn" style="background-image: url(<%= itm.thumbnailUrl %>);"><div class="VideoOverlay"><div class="ActionText"><a class="PlayLink" data-video-id="<%= itm.videoId %>" href="#">P</a></div><p class="TitleText"><%= itm.titleText %></p> <% }); %>';
+var videoTemplate = '<% _.each(items, function(itm) { %> <li class="background-image ContentItemVideo fade video-grid-item fadeIn" style="background-image: url(<%= itm.thumbnailUrl %>);"><div class="VideoOverlay"><div class="ActionText"><a class="PlayLink" data-video-id="<%= itm.id %>" href="#">P</a></div><p class="TitleText"><%= itm.titleText %></p> <% }); %>';
 // itm.thumbnailUrl
 // itm.titleText
 // itm.prettyDuration
 // itm.videoId
 
-
+var everlastCollectionId = 136645;//137568 137553 137567 137566
 var donnieCollectionId = 146804;
 
 var api = new TVPageAPI({
-  collectionId: donnieCollectionId,
+  collectionId: everlastCollectionId,
   playerDOMId: 'tvpage'
 });
 
 window.onload = function() {
 
-api.ready(function(API){
+  api.ready(function(API){
 
-  console.log('ready: ', arguments);
+    var children = API.collection.getChildren(API.collection.getAtIndex(0).id);
 
-  // $(document).ready(function(){
-  // window.onload = function() {
+    var items = [];
+    for (var i=0,len=children.length;i<len;i++) {
+      items.push(children[i].toJSON());
+    }
+
     var gridList = document.getElementById('grid-list');
-    var gridItems =  _.template(videoTemplate, {items:API.collection.getChildren(API.collection.getAtIndex(0).id)});
+    var gridItems =  _.template(videoTemplate, {items:items});
     gridList.innerHTML = gridItems;
 
     var menuButton = document.getElementById('menu-button');
@@ -45,17 +48,38 @@ api.ready(function(API){
       anchorElements[i].onclick = function(e) {
         e.stopPropagation();
         e.preventDefault();
-        var videoId = e.target.attributes[1].value;
-        API.player.loadByVideoId(videoId);
-        if (videoId !== undefined && videoId !== 'undefined') {
-          api.products.getProducts(API.collection.getItemByVideoId(videoId).id, function(products) {
-            var productJSON = products.toJSON();
-            for (var i=0, len = productJSON.length;i<len;i++) {
-              productJSON[i] = JSON.parse(productJSON[i].data);
+
+        var id = e.target.attributes[1].value;
+        var video = API.collection.getItemById(id);
+
+        API.player.loadVideo(video);
+        API.player.ready(function() {
+
+          API.registerVideoView(video);
+
+        }, function(e) {
+          console.log('Error Loading Video:', e);
+        });
+
+        if (video !== undefined) {
+
+          API.products.getProducts(video, function(products) {
+
+            var productJSON = [];//products.toJSON();
+            for (var i=0,len=products.length;i<len;i++) {
+
+              API.registerProductImpression(products.at(i));
+
+              var product = products.at(i);
+              productJSON.push(JSON.parse(product.get('data')));
+              productJSON[i].id = product.get('id');
             }
-            var gridList = document.getElementById('product-grid');
-            var gridItems =  _.template(productTemplate, {items:productJSON});
-            gridList.innerHTML = gridItems;
+
+            // var gridList = document.getElementById('product-grid');
+            // var gridItems =  _.template(productTemplate, {items:productJSON});
+            // gridList.innerHTML = gridItems;
+            console.log(productJSON);
+
           }, function(e) {
             console.log(e);
           });
@@ -63,33 +87,9 @@ api.ready(function(API){
       }
     }
 
-    // $(document).on('click', 'a', function(e) {
-    //   e.stopPropagation();
-    //   e.preventDefault();
-    //   API.player.loadByVideoId($(e.target).attr('data-video-id'));
-
-    //   var videoId = $(e.target).attr('data-video-id');
-
-    //   if (videoId !== undefined && videoId !== 'undefined') {
-    //     api.products.getProducts(API.collection.getItemByVideoId(videoId).id, function(products) {
-    //       var productJSON = products.toJSON();
-    //       for (var i=0, len = productJSON.length;i<len;i++) {
-    //         productJSON[i] = JSON.parse(productJSON[i].data);
-    //       }
-    //       var gridItems =  _.template(productTemplate, {items:productJSON});
-    //       $('.tvp-spots > .SpotContainer > ul').append(gridItems);
-    //     }, function(e) {
-    //       console.log(e);
-    //     });
-    //   }
-    // });
-
-  // };
-  // });
-
-}, function(e){
-  console.log('Sorry about this, but something went wrong...', e);
-});
+  }, function(e){
+    console.log('Sorry about this, but something went wrong...', e);
+  });
 
 };
 

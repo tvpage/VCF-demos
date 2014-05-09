@@ -12169,7 +12169,10 @@ define('tvp/player/PlayerTVPage',[
       this.interval = setInterval(
         function(){
           t.updatePlaybackInfo();
-          t.isVideoEnding();
+          // t.isVideoEnding();
+          if (t.isVideoEnded()) {
+            t.clearInterval();
+          }
         }
         , 1000
       );
@@ -12208,6 +12211,21 @@ define('tvp/player/PlayerTVPage',[
         return false;
       }
       return ( updateInfo.duration>0 && (updateInfo.secondsLeft < 10 || updateInfo.percentLeft < 6) );
+    },
+
+    /**
+     * Checks to see if video has ended.
+     *
+     *
+     * @memberof PlayerTVPage
+     * @return boolean TRUE if video ending, otherwise FALSE
+     */
+    isVideoEnded: function(){
+      var updateInfo = this.getUpdateInfo();
+      if ( !updateInfo.hasOwnProperty('secondsLeft') ) {
+        return false;
+      }
+      return ( updateInfo.duration>0 && updateInfo.secondsLeft === 0 );
     },
 
     /**
@@ -12265,6 +12283,8 @@ define('tvp/player/PlayerTVPage',[
           }
         }
       }
+
+      console.log(updateInfo);
 
       return updateInfo;
     },
