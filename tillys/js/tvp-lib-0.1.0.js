@@ -12232,7 +12232,6 @@ define('tvp/player/PlayerTVPage',[
      * Return the current state of a video
      *
      * @memberof PlayerTVPage
-     * @param {string} (ready, playing, paused, etc.)
      */
     getState: function() {
 
@@ -12546,16 +12545,17 @@ define('tvp/player/PlayerTVPage',[
      */
     on: function(event, callback) {
 
-      EventHandler.on(PlayerTVPage.Events['event'], callback);
+      EventHandler.on(PlayerTVPage.Events[event], callback);
 
     },
 
     /**
-     * From the YT API Documentation:
-     *     player.setSize(width:Number, height:Number):Object
-     *     Sets the size in pixels of the <iframe> that contains the player.
+     * Sets the size in pixels of the <iframe> that contains the player.
+     *
      * @memberof PlayerTVPage
-     * @private
+     * @param {width} width - New width
+     * @param {height} height - New height
+     * @ignore
      */
     resize: function(width, height){
       if ( this.isPlayerLoaded() ){
@@ -14122,14 +14122,18 @@ define(
 
     /**
      * TVPageAPI class
-     * This is the TVPageAPI class
      *
      * @namespace
      * @name TVPageAPI
      * @class TVPageAPI
      * @constructor
      * @param {object} options - Options for the new api object
-     * @return TVPageAPI Object
+     *
+     * @example
+     * var myApi = new TVPageAPI({
+     *   collectionId: 12345,
+     *   playerDOMId: 'tvpage_player'
+     * });
      */
     function TVPageAPI(options) {
       options = $.extend(true, {}, options);
@@ -14145,6 +14149,15 @@ define(
      * @memberof TVPageAPI
      * @param {function} callback - Function to call when the TVPageAPI is loaded
      * @param {function} failCallback - Function to call when the TVPageAPI fails to load
+     *
+     * @example
+     * myApi.ready(function() {
+     *   // Success!! Implement your code here!
+     * },
+     * function() {
+     *   // Error!! Something went wrong!
+     *   // Check your internet connection and ensure that the playerDOMId exists in your html
+     * });
      */
     TVPageAPI.prototype.ready = function(callback, failCallback) {
       if (typeof callback === 'function') {
@@ -14158,6 +14171,9 @@ define(
      *
      * @memberof TVPageAPI
      * @param {object} product - Product model.
+     *
+     * @example
+     * myApi.registerProductImpression(productModel);
      */
     TVPageAPI.prototype.registerProductImpression = function(product){
       DataCollection.registerProductImpression(this.collection.getKey(), product);
@@ -14168,6 +14184,9 @@ define(
      *
      * @memberof TVPageAPI
      * @param {object} product - Product model.
+     *
+     * @example
+     * myApi.registerProductClick(productModel);
      */
     TVPageAPI.prototype.registerProductClick = function(product){
       DataCollection.registerProductClick(this.collection.getKey(), product);
@@ -14178,6 +14197,9 @@ define(
      *
      * @memberof TVPageAPI
      * @param {object} tvpage - Tvpage model.
+     *
+     * @example
+     * myApi.registerPlayerImpression(tvpageModel);
      */
     TVPageAPI.prototype.registerPlayerImpression = function(tvpage){
       DataCollection.registerPlayerImpression(tvpage);
@@ -14188,6 +14210,9 @@ define(
      *
      * @memberof TVPageAPI
      * @param {object} video - Video model.
+     *
+     * @example
+     * myApi.registerVideoView(videoModel);
      */
     TVPageAPI.prototype.registerVideoView = function(video){
       DataCollection.registerVideoView(video);

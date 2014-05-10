@@ -1,0 +1,64 @@
+
+
+.SpotList {
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+
+  -webkit-backface-visibility: hidden;
+
+  position: absolute;
+  width: 800px;
+  height: 133px;
+}
+.SpotItem {
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+
+  position: relative;
+}
+
+.SpotItem .button {
+  padding: 5px 10px;
+
+  font-family: 'HelveticaBoldCondensed77', sans-serif;
+  background-color: #93d9ca;
+  border: solid 1px #93d9ca;
+  color:#fff;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+
+  cursor: pointer;
+}
+
+.SpotItem .button:hover {
+  background-color: #fff;
+  border: solid 1px #93d9ca;
+  color: #93d9ca;
+}
+
+
+
+.SpotContainer {
+  background: rgba(255,255,255,0.6);
+  width: 100%;
+  height: 100%;
+}
+
+.SpotOverlay {
+  text-align: center;
+  padding: 10px;
+  width: 150px;
+}
+
+.SpotOverlay > p {
+  margin: 5px;
+}
+
+.SpotImage {
+  width: 130px;
+  height: auto;
+  border: solid 1px #333333;
+}

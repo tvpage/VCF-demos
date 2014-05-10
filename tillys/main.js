@@ -1,9 +1,9 @@
 window.onload = function() {
 
-  var videoTemplate = '<% _.each(items, function(itm) { %> <li class="background-image ContentItemVideo fade video-grid-item fadeIn" style="background-image: url(<%= itm.thumbnailUrl %>);"><div class="VideoOverlay"><div class="ActionText"><a class="PlayLink" data-video-id="<%= itm.id %>" href="#">P</a></div><p class="TitleText"><%= itm.titleText %></p> <% }); %>';
+  var videoTemplate = '<% _.each(items, function(itm) { %> <li class="background-image ContentItemVideo fade video-list-item fadeIn"><div class="list-item-media background-image" style="background-image:url(<%= itm.thumbnailUrl %>);"></div><div class="list-item-body"><h4 class="list-item-heading"><a class="PlayLink" data-video-id="<%= itm.id %>" href="#"><%= itm.titleText %></a></h4></div></li> <% }); %>';
 
   var api = new TVPageAPI({
-    collectionId: 136645,
+    collectionId: 138014,
     playerDOMId: 'tvp-player'
   });
 
@@ -17,7 +17,7 @@ window.onload = function() {
     var spotHideTimer;
 
     function renderSpot(data) {
-      var compiled = _.template('<div class="background-image SpotItem"><div class="SpotOverlay"><img class="SpotImage" src="' + data.imageUrl + '"><p>' + data.title + '</p><button class="spot-action button">' + data.actionText + '</button></div></div>');
+      var compiled = _.template('<div class="background-image SpotItem"><div class="SpotOverlay"><img class="SpotImage" src="' + data.imageUrl + '"><p>' + data.title + '</p><button class="spot-action button">' + data.actionText + '</button></div></div>');//data-video-id="' + data.connectId + '"
       var spotContainer = document.getElementsByClassName('SpotContainer');
       spotContainer[0].innerHTML = compiled(data);
 
@@ -38,14 +38,14 @@ window.onload = function() {
     }
 
     function showPip() {
-      var pipYShift = parseInt((Math.random() * 150), 10);
-      var pipXShift = parseInt((Math.random() * 200), 10);
+      var pipYShift = parseInt((Math.random() * 225), 10);
+      var pipXShift = parseInt((Math.random() * 300), 10);
       var ySign = Math.random() >= 0.5 ? '' : '-';
       var xSign = Math.random() >= 0.5 ? '' : '-';
 
       var pip = document.getElementsByClassName('tvp-remote');
-      pip[0].style.top = (parseInt(ySign + pipYShift, 10) + 200) + 'px';
-      pip[0].style.left = (parseInt(xSign + pipXShift, 10) + 400) + 'px';
+      pip[0].style.top = (parseInt(ySign + pipYShift, 10) + 260) + 'px';
+      pip[0].style.left = (parseInt(xSign + pipXShift, 10) + 465) + 'px';
     }
 
     function hidePip() {
@@ -77,13 +77,14 @@ window.onload = function() {
 
     API.player.on('MEDIA_VIDEO_PLAYING', function(e) {
       canvas[0].style['-webkit-transform'] = 'translate(0px, 100%)';
-      videoContainer.style['-webkit-transform'] = 'translate(0px, 100%)';
+      videoContainer.style['-webkit-transform'] = 'translate(-100%, 0px)';
       API.products.getProducts(API.player.getVideo(), function(products) {
         var productJSON = [];
         for (var i=0,len=products.length;i<len;i++) {
           var product = products.at(i);
           productJSON.push(JSON.parse(product.get('data')));
           productJSON[i].title = product.get('title');
+          productJSON[i].connectId = product.get('connectId');
           productJSON[i].product = products.at(i);
         }
         cycleProducts(0, i, productJSON);
@@ -104,20 +105,20 @@ window.onload = function() {
 
     var children = API.collection.getChildren(API.collection.getAtIndex(0).id);
     var items = [];
-    for (var i=children.length-1;i>=0;i--) {
+    for (var i=0,len=children.length;i<len;i++) {
       items.push(children[i].toJSON());
     }
-    var gridList = document.getElementById('grid-list');
+    var gridList = document.getElementsByClassName('list');
     var gridItems =  _.template(videoTemplate, {items:items});
-    gridList.innerHTML = gridItems;
+    gridList[0].innerHTML = gridItems;
 
     var menuButton = document.getElementById('menu-button');
     menuButton.onclick = function() {
-      if (videoContainer.style['-webkit-transform'] === 'translate(0px, 100%)') {
+      if (videoContainer.style['-webkit-transform'] === 'translate(-100%, 0px)') {
         videoContainer.style['-webkit-transform'] = '';
         videoContainer.style['overflow-y'] = 'scroll';
       } else {
-        videoContainer.style['-webkit-transform'] = 'translate(0px, 100%)';
+        videoContainer.style['-webkit-transform'] = 'translate(-100%, 0px)';
       }
     };
 

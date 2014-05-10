@@ -1,0 +1,76 @@
+/* Header
+----------------------------------------------------- */
+
+.tvp-menubar .bar {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  min-height: 40px;
+}
+
+.button {
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  background: none;
+
+  outline: none;
+
+  color: #eee;
+
+  cursor: pointer;
+}
+
+.button .icon {
+  font-family: 'tvpageregular', sans-serif;
+  font-size: 22px;
+  line-height: 30px;
+  height: 30px;
+  margin-right: 2px;
+  vertical-align: middle;
+  display: inline-block;
+  padding-top: -1px;
+}
+
+.button.button-icon .icon {
+  font-size: 30px;
+  margin-right: 0;
+}
+
+.button .text {
+  font-size: 20px;
+  line-height: 29px;
+  height: 26px;
+  vertical-align: middle;
+}
+
+.tvp-menubar .button {
+
+  margin: 3px;
+  padding: 2px 5px;
+  font-family: 'HelveticaBoldCondensed77', sans-serif;
+}
+
+.tvp-menubar .button.button-icon {
+  padding: 2px;
+}
+
+.button-over {
+  background-color: #333333;
+  color: #ffd200;
+}
+
+.button-pressed {
+  box-shadow: inset 0px 1px 2px rgba(0,0,0,0.4);
+  background-color: #333333;
+  color: #ffd200;
+}
+
+.tvp-menubar .pull-right {
+  float: right;
+}

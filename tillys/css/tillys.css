@@ -1,0 +1,173 @@
+html, body {
+  margin: 0;
+  border: 0;
+  padding: 0;
+
+  font-family: Arial, Helvetica, "sans-serif";
+  font-size: 12px;
+  color: #444;
+  background-color: #262626;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.tillys-header {
+  width: 100%;
+
+
+  text-align: center;
+}
+
+.tillys-footer {
+  width: 100%;
+
+
+  text-align: center;
+}
+
+#tvpage {
+  width: 980px;
+  height: 551px;
+
+  background-color: #eee;
+
+  overflow: hidden;
+}
+
+.tvp-content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 40px;
+
+  width: 300px;
+  height: 511px;
+
+  overflow-y: scroll;
+}
+
+.tvp-content .list {
+  background-color: rgba(255,255,255,0.6);
+}
+
+.tvp-content .video-list-item .list-item-body {
+  color: #333;
+  font-weight: 500;
+}
+.tvp-content .video-list-item .list-item-media {
+  width: 80px;
+  height: 45px;
+}
+.tvp-content .video-list-item,
+.tvp-content .channel-list-item {
+  width: 100%;
+  padding: 10px;
+
+
+  /*border-top: solid 1px #666;
+  border-bottom: solid 1px #222;*/
+}
+
+.tvp-content .channel-list-item .list-item-media {
+  display: block;
+
+  width: 280px;
+  height: 45px;
+}
+
+.tvp-content .channel-list-item .list-item-body {
+  display: block;
+  margin-top:5px;
+
+  color: #333;
+}
+
+.Bar {
+  background-color: #666;
+}
+
+/* Products
+-------------------------- */
+.tvp-spots {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 40px;
+
+  width: 150px;
+  height: 511px;
+
+  overflow: hidden;
+}
+
+.tvp-remote {
+  /*-webkit-transform: scale(0);*/
+  /*-moz-transform: scale(0);*/
+  /*transform: scale(0);*/
+
+  position: absolute;
+  width: 30px;
+  height: 30px;
+
+  top: 0px;
+  left: 0px;
+
+  background-color: #7ea6d7;
+
+  line-height: 30px;
+  text-align: center;
+
+  color: #fff;
+
+  font-size: 30px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  box-shadow: 0px 0px 20px 5px rgba(255,255,255,0.8);
+}
+
+/* Scrollbar indicator
+----------------------------------------------------- */
+
+.iScrollHorizontalScrollbar {
+  position: absolute;
+  z-index: 9999;
+  height: 16px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  overflow: hidden;
+}
+
+.iScrollHorizontalScrollbar.iScrollBothScrollbars {
+  right: 18px;
+}
+
+.iScrollVerticalScrollbar {
+  position: absolute;
+  z-index: 9999;
+  width: 7px;
+  bottom: 2px;
+  top: 2px;
+  right: 2px;
+  overflow: hidden;
+}
+
+.iScrollVerticalScrollbar.iScrollBothScrollbars {
+  bottom: 18px;
+}
+
+.iScrollIndicator {
+  position: absolute;
+  background: #cc3f6e;
+  border: none;
+  border-radius: 4px;
+}
+
+.iScrollVerticalScrollbar .iScrollIndicator {
+  width: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
