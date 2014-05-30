@@ -1,0 +1,68 @@
+.tvp-player {
+  position: absolute;
+
+  top: 196px;
+  left: 0px;
+
+
+  /*
+  width: 393px;
+  height: 460px;
+  */
+
+  width: 1px;
+  height: 1px;
+
+
+  overflow: hidden;
+
+  background-color: #000;
+}
+
+.tvp-player > div,
+.tvp-player > div > div {
+  height: 460px;
+}
+
+.tvp-player > .control-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 20%;
+  height: auto;
+
+  cursor: pointer;
+}
+
+.tvp-player > .cover-overlay {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: auto;
+
+  background-color: #000;
+
+  text-align: center;
+}
+
+.action-button {
+  font-size: 14px;
+  padding: 10px 20px;
+  margin-top: 40px;
+
+  border: none;
+  border-radius: 4px;
+  background-color: #961207;
+  color: #fff;
+
+  cursor: pointer;
+  outline: 0;
+}
+
+.action-button:hover {
+  color: #961207;
+  background-color: #fff;
+}
