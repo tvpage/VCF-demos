@@ -1,3 +1,58 @@
+$(document).ready(function() {
+  // Instantiate the api
+  var api = new TVPageAPI({
+    collectionId: 170751,
+    playerDOMId: 'TVPage_Player'
+  });
+
+  api.ready(function(API){
+    // bind to the button
+    $('.play-video').on('click', function() {
+
+      $('.tvp-player').css({
+        width: '393px',
+        height: '460px'
+      });
+
+      var children = API.collection.getChildren(API.collection.getAtIndex(0).id)[0];
+      var videoObj = API.collection.getItemById(children.get('id'));
+
+      // Load video into player
+      API.player.loadVideo(videoObj);
+
+      var poll = window.setInterval(function() {
+        if (API.player.isEnded()) {
+          window.clearInterval(poll);
+        }
+      }, 200);
+    });
+
+    API.player.on('MEDIA_READY', function() {
+      console.log('media-ready');
+    });
+
+    API.player.on('MEDIA_VIDEO_ENDED', function() {
+      console.log('video-ended');
+      $('.tvp-player').css({
+        width: '1px',
+        height: '1px'
+      });
+    });
+
+    $('.control-overlay').on('click', function() {
+      if (API.player.isPlaying()) {
+        API.player.pause();
+      } else {
+        API.player.play();
+      }
+    });
+
+  }, function(e){
+    console.log('Sorry about this, but something went wrong...', e);
+  });
+});
+
+/*
 window.onload = function() {
 
   var templateString = '<% _.each(items, function(itm) { %> <li class="grid-item background-image ContentItemVideo fade fadeIn" style="background-image: url(<%= itm.thumbnailUrl %>);"><div class="VideoOverlay"><div class="text-center TitleText roman bottom-center" style="height:55px;"><%= itm.titleText %></div><div class="DetailsText top-center" style="top:0;"><div class="upper-left gothic font18">VIDEO</div><div class="upper-right gothic font18"><%= itm.prettyDuration %></div></div><p class="text-center"><button data-video-id="<%= itm.id %>" class="btn gothic PlayLink roman font22" style="font-size: 20px; padding-top:6px;line-height: 20px;">PLAY</button></p></div></li> <% }); %>';
@@ -5,7 +60,7 @@ window.onload = function() {
 
   // Instantiate the api
   var api = new TVPageAPI({
-    collectionId: 143889,
+    collectionId: 170751,
     playerDOMId: 'TVPage_Player'
   });
 
@@ -91,4 +146,4 @@ window.onload = function() {
     console.log('Sorry about this, but something went wrong...', e);
   });
 
-};
+};*/
