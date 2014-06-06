@@ -1,10 +1,10 @@
 #tvpage {
-  top: 329px;
-  left: 9px;
+  width: 870px;
+  height: 510px;
 
+  top: 403px;
+  left: 10px;
 
-  width: 343px;
-  height: 343px;
 }
 
 .tvp-player {
@@ -46,7 +46,7 @@ Keep the div inside the player container full size
 
 .tvp-player > div,
 .tvp-player > div > div {
-  height: 236px;
+  height: 100%;
 }
 
 .tvp-player > .control-overlay {
