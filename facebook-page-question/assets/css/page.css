@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding:0;
+  margin:0;
+  height:100%;
+  width:100%;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background-color: #eaeff5;
+}
+
+.body-bg {
+  background-image: url(../img/clothing-store-facebook-bg.jpg);
+  background-repeat: repeat-x;
+}
+
+.body {
+  position: relative;
+
+  margin:0 auto;
+  width: 1130px;
+  height:1523px;
+
+  background-image: url(../img/clothing-store-facebook.jpg);
+  background-repeat: no-repeat;
+}
