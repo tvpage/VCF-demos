@@ -9,12 +9,10 @@ html, body {
   width:100%;
 
   font-family: Arial, Helvetica, sans-serif;
-
-  background-color: #eaeff5;
 }
 
 .body-bg {
-  background-image: url(../img/clothing-store-facebook-bg.jpg);
+  background-image: url(../img/clothing-store-body-bg.jpg);
   background-repeat: repeat-x;
 }
 
@@ -22,9 +20,9 @@ html, body {
   position: relative;
 
   margin:0 auto;
-  width: 1130px;
-  height:1523px;
+  width: 1186px;
+  height:1857px;
 
-  background-image: url(../img/clothing-store-facebook.jpg);
+  background-image: url(../img/clothing-store-product-details.jpg);
   background-repeat: no-repeat;
 }
