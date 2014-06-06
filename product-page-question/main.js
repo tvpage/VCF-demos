@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // Setup the initial DOM structure
   var player = '<div class="tvp-player"><div id="TVPage_Player"></div><div class="stage-control"></div></div>';
-  var form = '<div class="tvp-form"><div class="form-buttons"><button class="btn btn-up" type="button"></button><button class="btn btn-down" type="button"></button></div><div class="form-text">Do you like the look?</div></div>'
+  var form = '<div class="tvp-form"><div class="form-buttons"><button class="btn btn-up" type="button">YES</button><button class="btn btn-down" type="button">NO</button></div><div class="form-text">Do you like the look?</div></div>'
   var result = '<div class="tvp-form-result">Thanks!</div>'
 
   // Inject the initial HTML structure

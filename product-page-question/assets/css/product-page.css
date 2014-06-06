@@ -106,48 +106,23 @@ Keep the div inside the player container full size
   padding: 0;
   margin: 5px 5px 5px;
 
-  background: none;
-  border: solid 1px transparent;
+  border: solid 1px #aaa;
+  background: #eeeeee;
 
   opacity: 0.7;
   cursor: pointer;
+
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .tvp-form .form-buttons .btn:hover {
-  border: solid 1px #aaa;
+  background: #fa3333;
+  color: #fff;
+
   border-radius: 3px;
 
-  background: #eeeeee;
-
   opacity: 1;
-}
-
-.tvp-form .form-buttons .btn.btn-up {
-  background-image: url(../img/Thumbs_Up.png);
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-}
-
-.tvp-form .form-buttons .btn.btn-down {
-  background-image: url(../img/Thumbs_Down.png);
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-}
-
-.tvp-form .form-buttons .btn.btn-up:hover {
-  background: #eeeeee;
-
-  background-image: url(../img/Thumbs_Up.png);
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-}
-
-.tvp-form .form-buttons .btn.btn-down:hover {
-  background: #eeeeee;
-
-  background-image: url(../img/Thumbs_Down.png);
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
 }
 
 /**
