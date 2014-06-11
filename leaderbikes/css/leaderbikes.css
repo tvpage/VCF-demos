@@ -206,22 +206,14 @@ h2 { font: 70px/70px 'LMRomanItalic'; color: #fff; text-transform: uppercase; ma
   background-color: rgba(0,0,0,0.4);
 }
 
-.tvp-player {
-  /*display: none;*/
-  /*visibility: hidden;*/
-  /*position: relative;*/
-  /*margin-bottom: 10px;*/
-}
-
-.tvp-player2 {
-  visibility: hidden;
-}
-
-#TVPage_Player2 > div {
+#TVPage_Player {
   width: 100%;
   height: 100%;
 }
-
+#TVPage_Player iframe {
+  width: 100%;
+  height: 100%;
+}
 #TVPage_Player > div {
   width: 100%;
   height: 100%;

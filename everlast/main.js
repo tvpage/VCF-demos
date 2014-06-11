@@ -10,7 +10,8 @@ window.onload = function() {
 
   api.ready(function(API){
 
-    var canvas = document.getElementsByClassName('tvp-canvas');
+    // var canvas = document.getElementsByClassName('tvp-canvas');
+    var canvas = document.querySelectorAll('.tvp-canvas');
     var videoContainer = document.getElementById('video-container');
 
     // Timer vars;
@@ -20,24 +21,32 @@ window.onload = function() {
 
     function renderProduct(data) {
       var compiled = _.template('<div class="background-image SpotItem"><div class="SpotOverlay"><img class="SpotImage" src="' + data.imageUrl + '"><p>' + data.title + '</p><button class="spot-action button">' + data.actionText + '</button></div></div>');
-      var spotContainer = document.getElementsByClassName('SpotContainer');
+      // var spotContainer = document.getElementsByClassName('SpotContainer');
+      var spotContainer = document.querySelectorAll('.SpotContainer');
       spotContainer[0].innerHTML = compiled(data);
 
       // Set click event for button in the product to register the click with analytics
-      var buttonSpot = document.getElementsByClassName('spot-action');
+      // var buttonSpot = document.getElementsByClassName('spot-action');
+      var buttonSpot = document.querySelectorAll('.spot-action');
       buttonSpot[0].onclick = function() {
         API.registerProductClick(data.product);
       }
     }
 
     function showProduct() {
-      var spotShelf = document.getElementsByClassName('tvp-spots');
-      spotShelf[0].style['-webkit-transform'] = 'translate(0px, 0%)';
+      // var spotShelf = document.getElementsByClassName('tvp-spots');
+      var spotShelf = document.querySelectorAll('.tvp-spots');
+      spotShelf[0].style.WebkitTransform = 'translate(0px, 0%)';
+      spotShelf[0].style.msTransform = 'translate(0px, 0%)';
+      spotShelf[0].style.transform = 'translate(0px, 0%)';
     }
 
     function hideProduct() {
-      var spotShelf = document.getElementsByClassName('tvp-spots');
-      spotShelf[0].style['-webkit-transform'] = 'translate(0px, 100%)';
+      // var spotShelf = document.getElementsByClassName('tvp-spots');
+      var spotShelf = document.querySelectorAll('.tvp-spots');
+      spotShelf[0].style.WebkitTransform = 'translate(0px, 100%)';
+      spotShelf[0].style.msTransform = 'translate(0px, 100%)';
+      spotShelf[0].style.transform = 'translate(0px, 100%)';
     }
 
     function showPip() {
@@ -46,13 +55,15 @@ window.onload = function() {
       var ySign = Math.random() >= 0.5 ? '' : '-';
       var xSign = Math.random() >= 0.5 ? '' : '-';
 
-      var pip = document.getElementsByClassName('tvp-remote');
+      // var pip = document.getElementsByClassName('tvp-remote');
+      var pip = document.querySelectorAll('.tvp-remote');
       pip[0].style.top = (parseInt(ySign + pipYShift, 10) + 200) + 'px';
       pip[0].style.left = (parseInt(xSign + pipXShift, 10) + 400) + 'px';
     }
 
     function hidePip() {
-      var pip = document.getElementsByClassName('tvp-remote');
+      // var pip = document.getElementsByClassName('tvp-remote');
+      var pip = document.querySelectorAll('.tvp-remote');
       pip[0].style.left = '1000px';
     }
 
@@ -85,8 +96,12 @@ window.onload = function() {
     API.player.on('MEDIA_VIDEO_PLAYING', function(e) {
 
       // Hide the canvas and video list
-      canvas[0].style['-webkit-transform'] = 'translate(0px, 100%)';
-      videoContainer.style['-webkit-transform'] = 'translate(0px, 100%)';
+      canvas[0].style.WebkitTransform = 'translate(0px, 100%)';
+      canvas[0].style.msTransform = 'translate(0px, 100%)';
+      canvas[0].style.transform = 'translate(0px, 100%)';
+      videoContainer.style.WebkitTransform = 'translate(-100%, 0px)';
+      videoContainer.style.msTransform = 'translate(-100%, 0px)';
+      videoContainer.style.transform = 'translate(-100%, 0px)';
 
       // Get all of the products for the current video
       API.products.getProducts(API.player.getVideo(), function(products) {
@@ -110,7 +125,9 @@ window.onload = function() {
     API.player.on('MEDIA_VIDEO_ENDED', function() {
 
       // Put the canvas image back
-      canvas[0].style['-webkit-transform'] = 'translate(0px, 0%)';
+      canvas[0].style.WebkitTransform = 'translate(0px, 0%)';
+      canvas[0].style.msTransform = 'translate(0px, 0%)';
+      canvas[0].style.transform = 'translate(0px, 0%)';
 
       // Stop all spot activity
       clearTimeout(spotPipTimer);
@@ -123,11 +140,17 @@ window.onload = function() {
     // Set up menu button click: hide/show the video list
     var menuButton = document.getElementById('menu-button');
     menuButton.onclick = function() {
-      if (videoContainer.style['-webkit-transform'] === 'translate(0px, 100%)') {
-        videoContainer.style['-webkit-transform'] = '';
+      if (videoContainer.style.WebkitTransform === 'translate(0px, 100%)' ||
+            videoContainer.style.transform === 'translate(0px, 100%)' ||
+            videoContainer.style.msTransform === 'translate(0px, 100%)') {
+        videoContainer.style.WebkitTransform = '';
+        videoContainer.style.msTransform = '';
+        videoContainer.style.transform = '';
         videoContainer.style['overflow-y'] = 'scroll';
       } else {
-        videoContainer.style['-webkit-transform'] = 'translate(0px, 100%)';
+        videoContainer.style.WebkitTransform = 'translate(0px, 100%)';
+        videoContainer.style.msTransform = 'translate(0px, 100%)';
+        videoContainer.style.transform = 'translate(0px, 100%)';
       }
     };
 
@@ -149,11 +172,31 @@ window.onload = function() {
       anchorElements[i].onclick = function(e) {
 
         // Don't use default <a> tag behavior
-        e.stopPropagation();
-        e.preventDefault();
+        if (e) {
+          e.stopPropagation();
+          e.preventDefault();
+        } else if (event) {
+          event.returnValue = false;
+        }
 
         // Get video object
-        var id = e.target.attributes[1].value;
+        var id;
+        if (e) {
+          var attributes = e.target.attributes;
+        } else if (event) {
+          var attributes = event.srcElement.attributes;
+        }
+
+        for (var i=0,len=attributes.length;i<len;i++) {
+          if (attributes[i].nodeName === 'data-video-id') {
+            id = attributes[i].nodeValue;
+            break;
+          }
+        }
+
+        if (!id) {
+          return false;
+        }
         var video = API.collection.getItemById(id);
 
         // Load video into player

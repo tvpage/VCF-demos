@@ -24,12 +24,30 @@ window.onload = function() {
     gridList.innerHTML = gridItems;
 
     // Set click events on the video list to play their videos
-    var playButtons = document.getElementsByClassName('PlayLink');
+    // var playButtons = document.getElementsByClassName('PlayLink');
+    var playButtons = document.querySelectorAll('.PlayLink');
     for (var i=0,len=playButtons.length;i<len;i++) {
       playButtons[i].onclick = function(e) {
 
         // Get video object
-        var id = e.target.attributes[0].value;
+        var id;
+        if (e) {
+          var attributes = e.target.attributes;
+        } else if (event) {
+          var attributes = event.srcElement.attributes;
+        }
+
+        for (var i=0,len=attributes.length;i<len;i++) {
+          if (attributes[i].nodeName === 'data-video-id') {
+            id = attributes[i].nodeValue;
+            break;
+          }
+        }
+
+        if (!id) {
+          return false;
+        }
+
         var video = API.collection.getItemById(id);
 
         // Load video into player
@@ -62,7 +80,8 @@ window.onload = function() {
             gridList.innerHTML = gridItems;
 
             // Set click event for button in the product to register the click with analytics
-            var productButton = document.getElementsByClassName('ProductButton');
+            // var productButton = document.getElementsByClassName('ProductButton');
+            var productButton = document.querySelectorAll('.ProductButton');
             for (var i=0,len=productButton.length;i<len;i++) {
               productButton[i].onclick = function(e) {
                 e.stopPropagation();
