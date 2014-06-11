@@ -1,0 +1,192 @@
+#tvpage {
+  position: absolute;
+  width: 870px;
+  height: 510px;
+
+  top: 403px;
+  left: 10px;
+
+  background-color: #000;
+}
+
+
+/**
+
+// PLAYER
+// ==========================================
+
+**/
+
+
+/**
+Keep the DOM player container full size
+**/
+.tvp-player {
+  position: relative;
+  width: 870px;
+  height: 475px;
+
+  box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.3);
+}
+
+/**
+Keep the player container full size
+**/
+#TVPage_Player {
+  width: 100%;
+  height: 100%;
+}
+
+/**
+Keep the div inside the player container full size
+**/
+#TVPage_Player > div {
+  width: 100%;
+  height: 100%;
+}
+
+.stage-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 20%;
+
+  cursor: pointer;
+}
+
+
+
+
+/**
+
+// TITLEBAR
+// ==========================================
+
+**/
+
+.tvp-titlebar {
+  width: 870px;
+  height: 35px;
+
+  /*padding: 0 10px;*/
+
+  background-color: #fff;
+}
+
+.tvp-titlebar .title {
+  line-height: 35px;
+}
+
+.tvp-titlebar .action-button {
+  float: right;
+
+  border: solid 1px #fa3333;
+  margin: 5px 0;
+  padding: 5px 10px;
+
+  background-color: #fa3333;
+  color: #fff;
+
+  cursor: pointer;
+}
+
+.tvp-titlebar .action-button.active,
+.tvp-titlebar .action-button:hover {
+  background-color: #fff;
+  color: #fa3333;
+}
+
+
+
+/**
+
+// PRODUCTS
+// ==========================================
+
+**/
+
+.tvp-products {
+  display: none;
+
+  background-color: rgba(0,0,0,0.5);
+
+  position: absolute;
+  top: 35px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  overflow: hidden;
+}
+
+.tvp-products .grid {
+  margin-top: 45px;
+  margin-left: 110px;
+
+  background-color: #000;
+
+}
+
+.tvp-products .grid .grid-item {
+  float: left;
+  width: 160px;
+  height: 190px;
+
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  margin: 1px;
+}
+
+.tvp-products .grid .grid-item .grid-item-overlay {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+
+  width: 160px;
+  height: 190px;
+
+  padding: 0 5px;
+
+  opacity: 0;
+
+  background-color: rgba(255,255,255,0.8);
+
+  -webkit-transition: all 0.2s;
+  -moz-transistion: all 0.2s;
+  transition: all 0.2s;
+}
+
+.tvp-products .grid .grid-item .grid-item-overlay:hover {
+  opacity: 1;
+}
+
+.tvp-products .grid .grid-item .grid-item-overlay .overlay-text,
+.tvp-products .grid .grid-item .grid-item-overlay .overlay-button {
+  display: inline-block;
+}
+
+.tvp-products .grid .grid-item .grid-item-overlay .overlay-text {
+  font-size: 14px;
+}
+
+.tvp-products .grid .grid-item .grid-item-overlay .overlay-button > a {
+  border: solid 1px #fa3333;
+  margin: 5px 0;
+  padding: 5px 10px;
+
+  background-color: #fa3333;
+  color: #fff;
+
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 12px;
+  line-height:36px;
+}
+
+.tvp-products .grid .grid-item .grid-item-overlay .overlay-button > a:hover {
+  background-color: #fff;
+  color: #fa3333;
+}
